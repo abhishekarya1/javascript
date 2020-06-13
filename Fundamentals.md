@@ -11,7 +11,7 @@
   - Simple
   - Full integration with HTML/CSS
   - JS engine is present and enabled by default on browser
-- Many new languages are **transpiled**(converted)  to Javascript before they run in the browser. Ex - CoffeeScript, TypeScript (Microsoft), Flow (Facebook), Dart (Google).
+- Many new languages are **transpiled** (converted)  to Javascript before they run in the browser. Ex - CoffeeScript, TypeScript (Microsoft), Flow (Facebook), Dart (Google).
 
 ### Developer Console
 - In Chrome:
@@ -85,7 +85,7 @@ const Birthday = "25/02/1998";
   - `-Infinity` - -∞
   - `NaN` - Not-a-Number (often a result of mathematical operation other than `+` on unequal data types)
 - `typeof` operator
-  - 'typeof x` or `typeof(x)`
+  - `typeof x` or `typeof(x)`
   - it returns a string (name of type detected)
   - `typeof(null)` is `object` and it is a language error
   - `typeof(function_name)` reutrns `function`. Ex - `typeof alert`
