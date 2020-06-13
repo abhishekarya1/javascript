@@ -135,7 +135,7 @@ The conversion rule:
 Arithmetic operaors - `+`, `-`, `*`, `/`, `%`, and `**`
 
 ### + is a very special operator
-- Arithmetic addition
+- Arithmetic addition (on numeric and boolean).
 - String concatenation
   - **only** the `+` operator converts any other type to `string` if one of the operands is a `string`.
   ```js
@@ -143,24 +143,26 @@ Arithmetic operaors - `+`, `-`, `*`, `/`, `%`, and `**`
   let b = 2 + 2 + '1'; // "41" and not "221", because of associativity
   let c = '1' + 2 + 2; // "122"
   ```
-- Convert to Numeric type (shorthand for `Number(value)`), no effect on numbers 
+- Convert to Numeric type (shorthand for `Number(value)`), no effect on numbers. 
 
+- **Exercise:**
 ```js
-"" + 1 + 0
-"" - 1 + 0
-true + false
-6 / "3"
-"2" * "3"
-4 + 5 + "px"
-"$" + 4 + 5
-"4" - 2
-"4px" - 2
-7 / 0
-"  -9  " + 5
-"  -9  " - 5
-null + 1
-undefined + 1
-" \t \n" - 2
+"" + 1 + 0  // "10"
+"" - 1 + 0  // "-1"
+true + false  // 1
+true + true // 2
+6 / "3" // 2
+"2" * "3" // 6
+4 + 5 + "px"  // 9px
+"$" + 4 + 5 // $45
+"4" - 2 // 2
+"4px" - 2 // NaN
+7 / 0 // Infinity
+"  -9  " + 5  // " -9 5"
+"  -9  " - 5  // -14
+null + 1  // 1
+undefined + 1 // NaN
+" \t \n" - 2  // -2, as the string is an empty string (only having whitespace chars) i.e. "0" after numeric conversion
 ```
 
 ### Assignment (=)
@@ -189,3 +191,44 @@ AND (`&`), OR (`|`), XOR (`^`), NOT (`~`), LEFT SHIFT (`<<`), RIGHT SHIFT (`>>`)
 
 ### Comma operator
 Same as in C. Very low precedence.
+
+## Comparisons
+- All comparison operators return a boolean value.
+- 8 comparison operators: `<`, `>`, `<=`, `>=`, `==, `!=`, `===`, and `!==`.
+- **String Comparison:** Strings are compared lexicographically (unicode) character-by-character.
+```js
+alert( 'Z' > 'A' ); // true
+alert( 'Glow' > 'Glee' ); // true
+alert( 'Bee' > 'Be' ); // true
+```
+- **Strict equality operator (===):** Returns `false` if the operands are of different types.
+```js
+alert(0 == false); // true
+alert(0 === false); // false
+```
+### Comparisons with null and undefined
+```js
+alert(null === undefined);  // false
+alert(null == undefined);  // true, they both are same for == operator
+```
+- `==` is defined separately than other comparison operators:
+  - every comparison operator converts operands to number first. `null` converts to `0` and `undefined` to `NaN`.
+  - `==` is defined such that `null` and `undefined` are **only** equal to one another and **not anything else**. No such conversion takes place with `null` and `undefined` with `==`. This can lead to non-intuitive results like [this](https://javascript.info/comparison#strange-result-null-vs-0).
+
+### Conditional operators
+`if-else`, `else if`, `switch`, and `?:`.
+
+### Logical operators
+- Operands get converted to `boolean` type before operation.
+- Operands are evaluated from left to right.
+- **There is a return type, it is not always `boolean`.**
+<br><br>
+- **OR (||):** finds the first *truthy* value (short-circuited) and returns that value, if all `false` then return value of last operand.
+- **AND (&&):** finds the first *falsy* value (short-circuited) and returns that value, if all `true` then return value of last operand.
+- **NOT(!):** returns `true`/`false`. Convert operand to `boolean` type, inverse the value and return it. `!!` can be used in place of `Boolean(value)`.
+
+### Nullish coalescing operator '??'
+- It performs a check for `null` and `undefined` values.
+- The result of `a ?? b` is: `a` if it's not `null` or `undefined`, otherwise `b`.
+- `??` returns the first *defined* value.
+- It's forbidden to use it with `||` or `&&` without explicit parentheses.
