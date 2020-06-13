@@ -121,7 +121,7 @@ Implicit conversion happens in mathematical functions and expressions automatica
 |----------|-------------|
 | undefined |  NaN | 
 | null |    0   | 
-| true/false | 0/1 |  
+| true/false | 1/0 |  
 | string | Whitespaces from the start and end are removed. If the remaining string is empty, the result is 0. Otherwise, the number is "read" from the string. An error gives NaN. |
 
 #### Boolean Conversion
