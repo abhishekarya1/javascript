@@ -123,4 +123,69 @@ Implicit conversion happens in mathematical functions and expressions automatica
 | null |    0   | 
 | true/false | 0/1 |  
 | string | Whitespaces from the start and end are removed. If the remaining string is empty, the result is 0. Otherwise, the number is "read" from the string. An error gives NaN. |
-     
+
+#### Boolean Conversion
+The conversion rule:
+- Values that are intuitively "empty", like 0, an empty string (`""`), `null`, `undefined`, and `NaN`, become `false`.
+- Other values become `true`.
+
+**NOTE**: `"0"` is not an empty string and hence it's boolean value is `true`.
+
+### Basic operators & maths
+Arithmetic operaors - `+`, `-`, `*`, `/`, `%`, and `**`
+
+### + is a very special operator
+- Arithmetic addition
+- String concatenation
+  - **only** the `+` operator converts any other type to `string` if one of the operands is a `string`.
+  ```js
+  let a = 2 + '3'; // 2 will be converted to string and the result will be "23"
+  let b = 2 + 2 + '1'; // "41" and not "221", because of associativity
+  let c = '1' + 2 + 2; // "122"
+  ```
+- Convert to Numeric type (shorthand for `Number(value)`), no effect on numbers 
+
+```js
+"" + 1 + 0
+"" - 1 + 0
+true + false
+6 / "3"
+"2" * "3"
+4 + 5 + "px"
+"$" + 4 + 5
+"4" - 2
+"4px" - 2
+7 / 0
+"  -9  " + 5
+"  -9  " - 5
+null + 1
+undefined + 1
+" \t \n" - 2
+```
+
+### Assignment (=)
+Returns assigned value
+```js
+let b;
+let a = (b=5);
+alert("a = " + a);   
+
+// Output: a = 5
+```
+
+#### Chained Assignments
+```js
+a = b = c = 4; // All a,b, and c get value as 4
+```
+
+### Compound Operators
+Exist for all arithmetical and bitwise operators. Ex - `+=`, `|=`, etc...
+
+### Unary Increment/Decrement
+Postfix and prefix: `++` and `--`
+
+### Bitwise operators
+AND (`&`), OR (`|`), XOR (`^`), NOT (`~`), LEFT SHIFT (`<<`), RIGHT SHIFT (`>>`), and ZERO-FILL RIGHT SHIFT ('>>>')
+
+### Comma operator
+Same as in C. Very low precedence.
