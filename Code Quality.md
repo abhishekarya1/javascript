@@ -32,7 +32,7 @@ There's a special syntax [JSDoc](https://en.wikipedia.org/wiki/JSDoc) to documen
   - writes some code,
   - tests it with a few test cases,
   - adds some more code,
-  - tests it again, but forgets to test exactly like before (skipping some tests, etc...)
+  - tests it again, but forgets to test *exactly* like before (skipping some tests, etc...)
 
 ### Behavior Driven Development (BDD)
 - Agile development process that encourages collaboration among developers, QA and non-technical or business participants in a software project. **BDD is three things in one: tests** AND **documentation** AND **examples**.
@@ -45,7 +45,26 @@ There's a special syntax [JSDoc](https://en.wikipedia.org/wiki/JSDoc) to documen
 - The development is **iterative** in BDD.
 
 ### Usage
-- Demo with Mocha (`describe`, `it`), Chai (`assert`ions) [here](https://plnkr.co/edit/8OgvvBpZI90lA1If?p=preview).
+- [Mocha.js](https://mochajs.org/): Core Framework
+  - `describe`: Test suite containing multiple tests, can be nested as deep as we want.
+  - `it`: Test case itself.
+  - Each call to `describe` and `it` has a `string` as first parameter and a `callback function` as second parameter. 
+  ```js
+  // test.js
+  describe("print", function(){
+    it("prints my name", function(){
+      assert.equal(print(), 'Abhishek');
+  });
+  });
+  
+  // actual code
+  function print()
+    {
+      return 'Abhishek';
+    }
+    ```
+  
+- [Chai.js](https://www.chaijs.com/): Assertion library, has lots of `assert`ions in it.
 
 ## Babel and Polyfills
 [Babel](https://babeljs.io/) is a transpiler. It rewrites modern JavaScript code into the previous standard. It has two parts:
