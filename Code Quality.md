@@ -48,7 +48,8 @@ There's a special syntax [JSDoc](https://en.wikipedia.org/wiki/JSDoc) to documen
 - [Mocha.js](https://mochajs.org/): Core Framework
   - `describe`: Test suite containing multiple tests, can be nested as deep as we want.
   - `it`: Test case itself.
-  - Each call to `describe` and `it` has a `string` as first parameter and a `callback function` as second parameter. 
+  - Each call to `describe` and `it` has: a `string` as first parameter and a `callback function` as second parameter.
+  
   ```js
   // test.js
   describe("print", function(){
@@ -68,5 +69,5 @@ There's a special syntax [JSDoc](https://en.wikipedia.org/wiki/JSDoc) to documen
 
 ## Babel and Polyfills
 [Babel](https://babeljs.io/) is a transpiler. It rewrites modern JavaScript code into the previous standard. It has two parts:
-  1. Direct Transpiler - rewrites the code. The developer runs it on their own computer. It rewrites the code into the older standard. And then the code is delivered to the website for users.
-  2. Polyfill - sometimes the modern code cannot be directly transpiled to the older one because of limitations in availability of language constructs. A script that updates/adds new functions is called 'polyfill'. It "fills in" the gap and adds missing implementations/constructs. 
+  1. **Direct Transpiler** - rewrites the code. The developer runs it on their own computer. It rewrites the code into the older standard. And then the code is delivered to the website for users.
+  2. **Polyfill** - sometimes the modern code cannot be directly transpiled to the older one because of limitations in availability of language constructs. A script that updates/adds new functions is called 'polyfill'. It "fills in" the gap and adds missing implementations/constructs. 
