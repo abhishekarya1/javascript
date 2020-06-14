@@ -284,6 +284,8 @@ message();  // call
 ```
 - If params are not passed or insufficient params are provided during the call, then such params are assigned `undefined`, unless a default param is provided in the function definition.
 - A function with an empty return or without it returns `undefined`.
+- Functions can be declared anywhere in a program, even inside `if`/`else` blocks, but they'll be accessible only inside that block.
+- Functions can be used above the code declaring them just like in C/C++, but not with function expressions. 
 
 ### Function Expression
 - Functions can be assigned to variables as:
@@ -303,3 +305,59 @@ alert( sayHi ); // shows the function code, does not call it
   ```js
   let funcNew = sayHi;
   ```
+  
+  #### Callback functions
+  A function can be used in a function declaration and later passed as argument. Those functions are called "Callbacks".
+  ```js
+  function ask(question, yes, no) { // used here as normal vars
+  if (confirm(question)) yes();
+  else no();
+} 
+
+function showOk() {
+  alert( "You agreed." );
+}
+
+function showCancel() {
+  alert( "You canceled the execution." );
+}
+
+// usage: functions showOk, showCancel are passed as arguments to ask
+ask("Do you agree?", showOk, showCancel);
+  ```
+- We can also declare functions inside `ask(...)` call as:
+```js
+function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
+}
+
+ask(
+  "Do you agree?",
+  function() { alert("You agreed."); },   // anonymous function
+  function() { alert("You canceled the execution."); }  // anonymous function
+);
+```
+
+### Arrow functions
+- `let func = (arg1, arg2, ...argN) => expression`
+```js
+`let sum = (a, b) => a + b;
+alert( sum(1, 2)
+```
+- Empty arrow function:
+```js
+let sayHi = () => alert("Hello!");
+
+sayHi();
+```
+
+- Multiline arrow function:
+```js
+let sum = (a, b) => {  // the curly brace opens a multiline function
+  let result = a + b;
+  return result; // if we use curly braces, then we need an explicit "return"
+};
+
+alert( sum(1, 2) ); // 3
+```
