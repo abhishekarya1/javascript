@@ -6,3 +6,6 @@ Learning Javascript.
 
 ## Short Notes
 [Introduction and Fundamentals](/Fundamentals.md)
+
+## Reference
+- [MDN (Mozilla) JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
