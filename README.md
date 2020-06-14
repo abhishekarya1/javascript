@@ -5,7 +5,8 @@ Learning Javascript.
 - [The Modern JavaScript Tutorial - javascript.info](https://javascript.info/)
 
 ## Short Notes
-[Introduction and Fundamentals](/Fundamentals.md)
+- [Introduction and Fundamentals](/Fundamentals.md)
+- [Code Quality](https://github.com/abhishekarya1/javascript/blob/master/Code%20Quality.md)
 
 ## Reference
 - [MDN (Mozilla) JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
