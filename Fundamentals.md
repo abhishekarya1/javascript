@@ -362,3 +362,6 @@ let sum = (a, b) => {  // the curly brace opens a multiline function
 
 alert( sum(1, 2) ); // 3
 ```
+
+### Summary
+Well summarized [here](https://javascript.info/javascript-specials).
