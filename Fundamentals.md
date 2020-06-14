@@ -221,6 +221,19 @@ alert(null == undefined);  // true, they both are same for == operator
 
 ### Conditional operators
 `if-else`, `else if`, `switch`, and `?:`.
+- **Switch:**
+  - No ranges are allowed unlike C/C++.
+  - The case matching is **strict**. 
+  - Both `switch` and `case` allow arbitrary expressions.
+```js
+switch(a+b){
+  case '1':  // 1 won't match with this
+  
+  case (b+1):
+  
+  case 3:   // '3' won't match with this
+}
+```
 
 ### Logical operators
 - Operands get converted to `boolean` type before operation.
@@ -238,3 +251,55 @@ alert(null == undefined);  // true, they both are same for == operator
 - The result of `a ?? b` is: `a` if it's not `null` or `undefined`, otherwise `b`.
 - `??` returns the first *defined* value.
 - It's forbidden to use it with `||` or `&&` without explicit parentheses.
+
+### Loops
+`for`, `while`, and `do...while`
+- any part of the `for` loop can be skipped
+- inline declaration is allowed in `for` loop
+```js
+for(let i=0; i<10; i++){}
+```
+- `break` and `continue` - call is only possible from inside a loop.
+- To jump in code, use labels with break as:
+```js
+for(let i=0; i<10; i++)
+{
+  if(i == 5)
+    break foo;
+}
+
+foo: alert("You just jumped here!")
+```
+**NOTE:** The label must be somewhere **above** its usage (`break label;`), unlike C/C++.
+
+### Functions
+- Scope rules (*global* and *local*) and variables are *pass-by-value* as in C/C++.
+```js
+function message(){
+let m = "Hello World!";   // local variable 
+alert(m);
+}
+
+message();  // call
+```
+- If params are not passed or insufficient params are provided during the call, then such params are assigned `undefined`, unless a default param is provided in the function definition.
+- A function with an empty return or without it returns `undefined`.
+
+### Function Expression
+- Functions can be assigned to variables as:
+```js
+let sayHi = function() {
+  alert( "Hello" );
+};  
+```
+- This print the source code of the function:
+```js
+function sayHi() {
+  alert( "Hello" );
+}
+alert( sayHi ); // shows the function code, does not call it
+```
+  - We can copy a function to another variable as:
+  ```js
+  let funcNew = sayHi;
+  ```
