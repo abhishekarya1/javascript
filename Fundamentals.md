@@ -194,7 +194,7 @@ Same as in C. Very low precedence.
 
 ## Comparisons
 - All comparison operators return a boolean value.
-- 8 comparison operators: `<`, `>`, `<=`, `>=`, `==, `!=`, `===`, and `!==`.
+- 8 comparison operators: `<`, `>`, `<=`, `>=`, `==`, `!=`, `===`, and `!==`.
 - **String Comparison:** Strings are compared lexicographically (unicode) character-by-character.
 ```js
 alert( 'Z' > 'A' ); // true
