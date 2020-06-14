@@ -231,6 +231,8 @@ alert(null == undefined);  // true, they both are same for == operator
 - **AND (&&):** finds the first *falsy* value (short-circuited) and returns that value, if all `true` then return value of last operand.
 - **NOT(!):** returns `true`/`false`. Convert operand to `boolean` type, inverse the value and return it. `!!` can be used in place of `Boolean(value)`.
 
+**Must do Exercises:** [here](https://javascript.info/logical-operators#tasks).
+
 ### Nullish coalescing operator '??'
 - It performs a check for `null` and `undefined` values.
 - The result of `a ?? b` is: `a` if it's not `null` or `undefined`, otherwise `b`.
