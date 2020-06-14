@@ -214,6 +214,10 @@ alert(null == undefined);  // true, they both are same for == operator
 - `==` is defined separately than other comparison operators:
   - every comparison operator converts operands to number first. `null` converts to `0` and `undefined` to `NaN`.
   - `==` is defined such that `null` and `undefined` are **only** equal to one another and **not anything else**. No such conversion takes place with `null` and `undefined` with `==`. This can lead to non-intuitive results like [this](https://javascript.info/comparison#strange-result-null-vs-0).
+  
+  ```js
+  alert(null == 0); // false, null to number is 0 but no such conversion for == and above rule is followed
+  ```
 
 ### Conditional operators
 `if-else`, `else if`, `switch`, and `?:`.
