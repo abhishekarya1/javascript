@@ -69,6 +69,7 @@ ignored*/
 ```js
 const Birthday = "25/02/1998";
 ```
+- Only `[a-zA-Z0-9\_$]` are allowed, first character should not be a digit.
 
 ### Data types
 - 8 basic types: 
