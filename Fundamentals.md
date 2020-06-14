@@ -122,7 +122,7 @@ Implicit conversion happens in mathematical functions and expressions automatica
 | undefined |  NaN | 
 | null |    0   | 
 | true/false | 1/0 |  
-| string | Whitespaces from the start and end are removed. If the remaining string is empty, the result is 0. Otherwise, the number is "read" from the string. An error gives NaN. |
+| string | Whitespaces from the start and end are removed. If the remaining string is empty, the result is 0. Otherwise, the number is "read" from the string. An alphanumeric mixed string gives NaN. |
 
 #### Boolean Conversion
 The conversion rule:
@@ -137,7 +137,7 @@ Arithmetic operaors - `+`, `-`, `*`, `/`, `%`, and `**`
 ### + is a very special operator
 - Arithmetic addition (on numeric and boolean).
 - String concatenation
-  - **only** the `+` operator converts any other type to `string` if one of the operands is a `string`.
+  - **only** the `+` operator converts any other type to `string` if one of the operands is a `string`. **All** other basic operators convert string to numeric if one of the operands is a `string`.
   ```js
   let a = 2 + '3'; // 2 will be converted to string and the result will be "23"
   let b = 2 + 2 + '1'; // "41" and not "221", because of associativity
