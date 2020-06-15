@@ -10,6 +10,14 @@ let user = new Object(); // "object constructor" syntax
 let user = {};  // "object literal" syntax
 ```
 
+**Adding values to empty object:**
+```js
+let user = {};  // empty object
+
+user.name = 'Abhishek';   // will create name key automatically
+user.age = 22;    //will create age key automatically
+```
+
 **Example:** 
 ```js
 let user = {     // an object
