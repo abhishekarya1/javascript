@@ -202,3 +202,38 @@ Object.assign(user, permissions1, permissions2);
 // now user = { name: "John", canView: true, canEdit: true }
 ```
 - If the copied property name already exists, it gets overwritten.
+
+## Garbage collection
+- Concept of *reachability*.
+- ["Mark-and-Sweep" algorithm](https://javascript.info/garbage-collection#internal-algorithms)
+- Collection optimizations - **Genreational**, **Incremental**, and **Idle-time** collections.
+
+## Object methods and "this"
+- functions in objects are called *methods*.
+```js
+function sayHello() // function definition
+{ 
+  alert("Hello");
+}
+
+let user = {};  // empty object
+
+user.sayHello = SayHello; // adding key
+user.sayHello();  // call
+```
+**Using function expression:**
+```js
+let user = {};
+
+user.sayHello = function(){ alert("Hello"); };
+```
+
+**Shorthand:**
+```js
+let user = {
+  name : 'Abhishek',
+  
+  sayHello() { alert("Hello"); }  // same as "sayHi: function(){...}"
+};
+```
+
