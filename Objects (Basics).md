@@ -170,3 +170,35 @@ for (let key in user) {
 **What's the ordering in an object which for...in loop traverses?**
 <br>
 **Ans:** Integer properties are sorted, others appear in creation order. If a number is defined as a `string` in the object, convert it to `number` using `+` operator.
+
+## Object copying, references
+When an object is copied to another variable, only the reference (address) to the original object is stored in the new variable i.e. a shallow copy. Changes to new variable affect the original as well. This behaviour is unlike the other 7 primitives.
+```js
+let user = { name: "John" };
+
+let admin = user; // copy the reference
+```
+
+### Comparison by reference
+- `==` and `===` work the same for objects. Two variables will only be equal if they refer to the same object.
+- Two exacly same objects will not be equal either.
+```js
+let a = {};
+let b = {}; // two independent objects
+
+alert( a == b ); // false
+```
+
+## Deep copying objects (Object.assign())
+```js
+let user = { name: "John" };
+
+let permissions1 = { canView: true };
+let permissions2 = { canEdit: true };
+
+// copies all properties from permissions1 and permissions2 into user
+Object.assign(user, permissions1, permissions2);
+
+// now user = { name: "John", canView: true, canEdit: true }
+```
+- If the copied property name already exists, it gets overwritten.
