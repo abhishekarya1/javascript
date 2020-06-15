@@ -68,7 +68,7 @@ student = { name : "Foo", batch: 4};  // error
 ```js
 user.likes birds = false;  // won't work
 
-user["likes birds"] = false;  // correct
+user["likes birds"] = false;  // correct, IF KEY IS QUOTED IN OBJECT, IT MUST BE QUOTED INSIDE [] EVEN IF SINGLE WORD 
 ```
 
 2. We can get key during runtime for access, unlike dot notation (`.`):
