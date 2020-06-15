@@ -26,6 +26,18 @@ let user = {     // an object
 };
 ```
 
+**Returning an object:**
+```js
+function hi(){
+	return {      // object to be returned
+		name : 'Abhishek'
+	};
+}
+
+let greet = hi();
+alert(greet. name);
+```
+
 ### Access using Dot Notation
 ```js
 alert( user.name ); // John
@@ -130,7 +142,7 @@ age   // same as age:age
 
 ### Object name
 - There are no limitations on property names. They can be any reserved words or any strings or symbols.
-- Other types are automatically converted to strings. For instance, a number `0` becomes a string `"0"` when used as a property key:
+- Property can only be `string` or `symbols`. Other types are automatically converted to strings. For instance, a number `0` becomes a string `"0"` when used as a property key:
 ```js
 let obj = {
   0: "test" // same as "0": "test"
@@ -237,3 +249,98 @@ let user = {
 };
 ```
 
+### "this" keyword
+- To access the object, a method can use the `this` keyword. This is a good way to make objects "portable" i.e. we can copy an object into multiple objects and do not need to change the code inside, which references current object everytime.
+- ["this" is not *bound*](https://javascript.info/object-methods#this-is-not-bound): `this` can occur inside any function outside the object, an will refer to any object the function is added to and will change according to the context during *runtime*.
+- If `this` is in a function only and that function is not in any object, then we get `undefined`. [Important Example](https://javascript.info/object-methods#using-this-in-object-literal)
+- Arrow funcitons can't have their own `this`, we need to declare another function as a wrapper for arrow function to use `this`.
+
+## Constructor Funtion
+Constructor functions technically are regular functions. There are two conventions though:
+1. They are named with capital letter first.
+2. They should be executed only with "new" operator.
+```js
+function User(name) {   // constructor function
+  this.name = name;
+  this.isAdmin = false;
+}
+
+let user = new User("Jack");
+
+alert(user.name); // Jack
+alert(user.isAdmin); // false
+```
+
+### new
+When a function is executed with new, it does the following steps:
+1. A new empty object is created and assigned to this.
+2. The function body executes. Usually it modifies `this`, adds new properties to it.
+3. The value of `this` is returned.
+
+### 
+Usually, constructors do not have a `return` statement. Their task is to write all necessary stuff into `this`, and it automatically becomes the result.
+<br><br>
+But if there is a `return` statement, then the rule is simple:
+  - If `return` is called with an object, then the object is returned instead of `this`.
+  - If `return` is called with a primitive, it's ignored.
+
+### Ommiting Parentheses
+```js
+let user = new User; // <-- no parentheses
+// same as
+let user = new User();
+```
+
+### Funtion calling with new
+- Funtions can be called using *new* and if they return an object, then that object will be returned instead of `this`. [Example](https://javascript.info/constructor-new#two-functions--one-object).
+
+## Optional chaining (?.)
+The ?. syntax has three forms:
+
+1. obj?.prop – returns obj.prop if obj exists, otherwise undefined.
+2. obj?.[prop] – returns obj[prop] if obj exists, otherwise undefined.
+3. obj?.method() – calls obj.method() if obj exists, otherwise returns undefined.
+As we can see, all of them are straightforward and simple to use. The ?. checks the left part for null/undefined and allows the evaluation to proceed if it's not so.
+
+A chain of ?. allows to safely access nested properties.
+
+Still, we should apply ?. carefully, only where it's ok that the left part doesn't exist.
+
+So that it won't hide programming errors from us, if they occur.
+
+## Symbols
+A "symbol" represents a unique identifier.
+
+**Syntax:**
+```js
+let symbol_name = Symbol("symbol_desc");  // description is just a label 
+```
+
+```js
+let id1 = Symbol("id");
+let id2 = Symbol("id");
+
+alert(id1 == id2); // false
+```
+- Symbols can't automatically convert to string. Use `.toString(symbol_name)` for that.
+- Use `symbol.description` to show the description only:
+```js
+let id = Symbol("id");
+alert(id.description); // id
+```
+
+### "Hidden" properties
+- Third party code (maybe from another js library) can't see symbols and they even get skipped in `for...in` loop iteration.
+- `Object.keys(user)` also ignores them. That's a part of the general "hiding symbolic properties" principle. If another script or a library loops over our object, it won't unexpectedly access a symbolic property.
+- In contrast, `Object.assign` copies both string and symbol properties.
+
+### Uding Symbol in an object as keyname ([...]) 
+```js
+let id = Symbol("id");
+
+let user = {
+  name: "John",
+  [id]: 123 // not "id: 123"
+};
+```
+That's because we need the value from the variable `id` as the key, not the string `"id"`.
