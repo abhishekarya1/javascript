@@ -1,4 +1,4 @@
-# Data Types
+# Numbers and Strings
 
 ## Methods of primitives
 How can there be a method of a primitive? eg. `str.toUpperCase()` or `str.length()`.
