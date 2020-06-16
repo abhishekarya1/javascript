@@ -102,7 +102,7 @@ alert( 123456..toString(36) ); // 2n9c
 ```js
 alert(NaN === NaN); // false
 ```
-- `isFinite(value)` converts its argument to a number and returns `true` if it's a regular number, not `NaN`/`Infinity`/`-Infinity`. It can be used to validate whether a string value is a regular number. Note that an empty or a space-only string is treated as `0` in all numeric functions including `isFinite`.
+- `isFinite(value)` converts its argument to a number and returns `true` if it's a regular number, not `NaN`/`Infinity`/`-Infinity`. **It can be used to validate whether a string value is a regular number.** Note that an empty or a space-only string is treated as `0` in all numeric functions including `isFinite`.
 
 ### Object.is(a, b) 
 It is the same as `a === b`. `a` and `b` are primitives.
@@ -134,3 +134,59 @@ alert( parseInt('ff', 16) ); // 255, without 0x also works
 
 alert( parseInt('2n9c', 36) ); // 123456
 ```
+
+## Strings
+
+### Backticks
+1. Can evluate expresssions inside them using `&{...}`.
+2. Can span multiple lines.
+```js
+let str = `Abhishek  // newline added here; totally valid
+Arya`;
+```
+### Templpate Functions/Tagged Templates
+- func`string`: `func` is an existing function and this syntax passes the `string` to that function.
+
+### Escape Characters
+`\n`, `\t`, `\b`, `\f`, `\v`, `\r`, `\\`, `\'`, `\"`
+
+### String properties and methods
+- `.length`: It is a property and not a function.
+- `.toLowerCase()` 
+- `.toUpperCase()`
+- `.indexOf(substr, pos)`: It looks for the substr in `str`, starting from the given position `pos`, and returns the position where the match was found or `-1` if nothing can be found. `pos` is *optional*, skipping it means seach starting from `0`. This returns the first occurance index of `str`. 
+- `.lastIndexOf(substr, pos)`: Same as above but it start searchhing from the end and returns last index of the substring if found.
+
+**NOTE:** Be careful of `str.indexOf(substr, pos)` inside `if`, because if substring is found at index `0` then if treats `0` as `false`.
+
+### The bitwise NOT trick
+`if ( ~str.indexOf("...") )`: This is `true` only if there is a match. Why? for 32-bit integers `~n` equals `-(n+1)`, `~n` is zero only if `n == -1` (or no substring match).
+
+- `.includes(substr, pos)`
+- `.startsWith(str)`
+- `.endsWith(str)`
+
+### Extracting a substring
+| method|selects…	|negatives|
+|---|---|---|
+|slice(start, end)|	from start to end (not including end)|	allows negatives|
+|substring(start, end)|	between start and end|	negative values mean 0|
+|substr(start, length)|	from start get length characters	|allows negative start|
+
+### Getting a characher
+```js
+let str = 'Abhishek';
+
+alert(str[0]); // A
+alert(str[3]); // i
+alert(str[7]); // k
+```
+
+**Strings are immutable:** We cannot change a single character in a string by using `string_name[index]`.
+```js
+let str = 'Abhishek';
+
+str[0] = 'T'; // error
+```
+
+### Unicode compatibility in strings 
