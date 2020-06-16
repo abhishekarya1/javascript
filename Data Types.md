@@ -182,6 +182,8 @@ alert(str[3]); // i
 alert(str[7]); // k
 ```
 
+This can return `undefined` if string is empty. Use `str.charAt(0)` to make sure that empty string (`""`) is returned on empty string.
+
 **Strings are immutable:** We cannot change a single character in a string by using `string_name[index]`.
 ```js
 let str = 'Abhishek';
@@ -190,3 +192,5 @@ str[0] = 'T'; // error
 ```
 
 ### Unicode compatibility in strings 
+- [In string comparison](https://javascript.info/string#comparing-strings)
+- [Internals, Unicode](https://javascript.info/string#internals-unicode)
