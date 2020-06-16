@@ -58,6 +58,7 @@ fruits[99999] = 5; // assign a property with the index far greater than its leng
 
 fruits.age = 25; // create a property with an arbitrary name
 ```
+- They are copied by reference just like Objects.
 
 ### Performance
 `pop` and `push` are faster than `shift` and `unshift` because of element movement overhead.
