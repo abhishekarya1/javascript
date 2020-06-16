@@ -343,7 +343,7 @@ ask(
 ### Arrow functions
 - `let func = (arg1, arg2, ...argN) => expression`
 ```js
-`let sum = (a, b) => a + b;
+`let sum = (a, b) => a + b;   // note that they don't have return, the expression is evaluated and returned automatically
 alert( sum(1, 2)
 ```
 - Empty arrow function:
