@@ -322,7 +322,7 @@ let id2 = Symbol("id");
 
 alert(id1 == id2); // false
 ```
-- Symbols can't automatically convert to string. Use `.toString(symbol_name)` for that.
+- **Symbols can't automatically convert to string.** Use `.toString(symbol_name)` for that.
 - Use `symbol.description` to show the description only:
 ```js
 let id = Symbol("id");
@@ -330,11 +330,11 @@ alert(id.description); // id
 ```
 
 ### "Hidden" properties
-- Third party code (maybe from another js library) can't see symbols and they even get skipped in `for...in` loop iteration.
+- Third party code (maybe from another js library) can make same name/description symbols after forking our code and they won't clash with symbols that we already have with the same name (as name/desc doesn't matter) in our code, they even get skipped in `for...in` loop iteration.
 - `Object.keys(user)` also ignores them. That's a part of the general "hiding symbolic properties" principle. If another script or a library loops over our object, it won't unexpectedly access a symbolic property.
 - In contrast, `Object.assign` copies both string and symbol properties.
 
-### Uding Symbol in an object as keyname ([...]) 
+### Using Symbol in an object as keyname ([...]) 
 ```js
 let id = Symbol("id");
 
@@ -344,3 +344,46 @@ let user = {
 };
 ```
 That's because we need the value from the variable `id` as the key, not the string `"id"`.
+
+### Global symbols and Global symbol registry (GSR)
+There is an internal "global symbol registry" maintained by the js engine, we can add to it using `Symbol.for(name)`. For same name/desc, it stores only one key and return it i.e. for the same name/desc, only one symbol is made, stored, and returned everytime.
+```js
+let foo = Symbol.for("foo1");	// creates symbol with name foo1 in GSR
+
+let foobar = Symbol.for("foo1"); // same symbol's as above reference is returned and stored in foobar 
+```
+
+### Symbol.keyFor
+`Symbol.forKey` returns name/desc for a given symbol key which is of type `string`. It *only* uses GSR internally.
+```js
+let foo = Symbol("name");
+
+alert( Symbol.keyFor(foo);
+```
+
+### System symbols
+There exist many "system" symbols that JavaScript uses internally, and we can use them to fine-tune various aspects of our objects. For example: `Symbol.toPrimitive` allows us to describe object to primitive conversion.
+
+## Object to primitive conversion
+- All objects are `true` in a boolean context. There are only numeric and string conversions.
+- The `numeric` conversion happens when we subtract objects or apply mathematical functions. For instance, Date objects (to be covered in the chapter Date and time) can be subtracted, and the result of `date1 - date2` is the time difference between two dates.
+- As for the` string` conversion – it usually happens when we output an object like `alert(obj)` and in similar contexts.
+
+### Hints
+Three variants of type conversion, so-called **"hints"**. 
+1. `string`
+2. `number`
+3. `default`: When js is not sure of which is the context. eg. `+` can be concatenate or arithmetic addition.
+
+The greater and less comparison operators, such as `< >`, can work with both strings and numbers too. Still, they use the "number" hint, not "default". That's for historical reasons.
+<br>
+<br>
+All built-in objects except for one case (`Date` object, we'll learn it later) implement "default" conversion the same way as "number". So no need to remember all three.
+
+### Conversion
+To do the conversion, JavaScript tries to find and call three object methods:
+1. Call `obj[Symbol.toPrimitive](hint)` – the method with the symbolic key `Symbol.toPrimitive (system symbol)`, if such method exists,
+2. Otherwise if hint is `"string"`
+try `obj.toString()` and `obj.valueOf()`, whatever exists.
+3. Otherwise if hint is `"number"` or `"default"`
+try `obj.valueOf()` and `obj.toString()`, whatever exists.
