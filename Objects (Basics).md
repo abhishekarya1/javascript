@@ -284,7 +284,7 @@ But if there is a `return` statement, then the rule is simple:
   - If `return` is called with an object, then the object is returned instead of `this`.
   - If `return` is called with a primitive, it's ignored.
 
-### Ommiting Parentheses
+### Omitting Parentheses
 ```js
 let user = new User; // <-- no parentheses
 // same as
@@ -295,16 +295,16 @@ let user = new User();
 - Funtions can be called using *new* and if they return an object, then that object will be returned instead of `this`. [Example](https://javascript.info/constructor-new#two-functions--one-object).
 
 ## Optional chaining (?.)
-The ?. syntax has three forms:
+The `?.` syntax has three forms:
 
-1. obj?.prop – returns obj.prop if obj exists, otherwise undefined.
-2. obj?.[prop] – returns obj[prop] if obj exists, otherwise undefined.
-3. obj?.method() – calls obj.method() if obj exists, otherwise returns undefined.
+1. `obj?.prop` – returns `obj.prop` if obj exists, otherwise `undefined`.
+2. `obj?.[prop]` – returns `obj[prop]` if obj exists, otherwise `undefined`.
+3. `obj?.method()` – calls `obj.method()` if obj exists, otherwise returns `undefined`.
 As we can see, all of them are straightforward and simple to use. The ?. checks the left part for null/undefined and allows the evaluation to proceed if it's not so.
 
-A chain of ?. allows to safely access nested properties.
+A chain of `?.` allows to safely access nested properties.
 
-Still, we should apply ?. carefully, only where it's ok that the left part doesn't exist.
+Still, we should apply `?.` carefully, only where it's ok that the left part doesn't exist.
 
 So that it won't hide programming errors from us, if they occur.
 
@@ -354,11 +354,11 @@ let foobar = Symbol.for("foo1"); // same symbol's as above reference is returned
 ```
 
 ### Symbol.keyFor
-`Symbol.forKey` returns name/desc for a given symbol key which is of type `string`. It *only* uses GSR internally.
+`Symbol.keyFor` returns name/desc for a given symbol key which is of type `string`. It *only* uses GSR internally.
 ```js
 let foo = Symbol("name");
 
-alert( Symbol.keyFor(foo);
+alert( Symbol.keyFor(foo) );
 ```
 
 ### System symbols
