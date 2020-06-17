@@ -95,7 +95,7 @@ let arr = new Array("Apple", "Pear", "etc");  // it is lengthy and obsolete
 ```
 
 ### Arrays as Strings
-Arrays can only be converted to string.
+Arrays can only be converted to `string`.
 
 ```js
 let arr = [1, 2, 3];
@@ -109,3 +109,6 @@ alert( [1] + 1 ); // "11"
 alert( [1,2] ); // "1,2"
 alert( [1,2] + 1 ); // "1,21"
 ```
+
+## More array methods
+- [Link](https://javascript.info/array-methods)
