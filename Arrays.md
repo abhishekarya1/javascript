@@ -123,3 +123,16 @@ Technically, iterables must implement the method named `Symbol.iterator`. The re
 - Built-in iterables like strings or arrays, also implement `Symbol.iterator`.
 <br><br>
 [Example](https://javascript.info/iterable#symbol-iterator)
+
+### Array.from
+There's a universal method `Array.from` that takes an *iterable* or *array-like* value and makes a "real" Array from it. Then we can call array methods on it.
+```js
+let arrayLike = {
+  0: "Hello",
+  1: "World",
+  length: 2
+};
+
+let arr = Array.from(arrayLike); // (*)
+alert(arr.pop()); // World (method works)
+```
