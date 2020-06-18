@@ -112,3 +112,14 @@ alert( [1,2] + 1 ); // "1,21"
 
 ## More array methods
 - [Link](https://javascript.info/array-methods)
+
+## Iterables
+How does js know to iterate over elements of objects and array like structures like `string`?
+Ans: It does so with iterables. **Objects that can be used in `for..of` are called *iterable*.**
+<br><br>
+Technically, iterables must implement the method named `Symbol.iterator`. The result of `obj[Symbol.iterator]` is called an *iterator*. It handles the further iteration process.
+- An iterator must have the method named `next()` that returns an object `{done: Boolean, value: any}`, here `done:true` denotes the end of the iteration process, otherwise the `value` is the next value.
+- The `Symbol.iterator` method is called automatically by `for..of`, but we also can do it directly.
+- Built-in iterables like strings or arrays, also implement `Symbol.iterator`.
+<br><br>
+[Example](https://javascript.info/iterable#symbol-iterator)
