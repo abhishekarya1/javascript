@@ -10,6 +10,7 @@ Learning Javascript.
 - [Object (Basics)](https://github.com/abhishekarya1/javascript/blob/master/Objects%20(Basics).md)
 - [Numbers and Strings](https://github.com/abhishekarya1/javascript/blob/master/Numbers%20and%20Strings.md)
 - [Arrays](/Arrays.md)
+- [Maps and Sets](/Maps%20and%20Sets.md)
 
 ## Reference
 - [MDN (Mozilla) JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
