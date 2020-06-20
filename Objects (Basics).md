@@ -116,6 +116,8 @@ let bag = {
 };
 ```
 
+**What if we use `.` in `for...in` loop?**<br>Ans: It will return `undefined`.
+
 ### Property value shorthand
 ```js
 let name = 'Abhishek';
