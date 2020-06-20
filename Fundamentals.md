@@ -96,7 +96,7 @@ const Birthday = "25/02/1998";
 - all three opens a *"modal window"* i.e. the script and the page pauses until this window is closed either by interacting or pressing `Esc`
 - we can't control location and look of this modal window
 
-- **alert:** returns nothing
+- **alert:** returns nothing (`undefined`)
 ```js
 alert("FBI! OPEN UP!!");
 ```
