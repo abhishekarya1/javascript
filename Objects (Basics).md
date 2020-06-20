@@ -2,7 +2,7 @@
 
 ## Objects
 - stores key-value pairs
-- key is a property and value is its value
+- key is a propertyName and value is its propertyValue
 
 **Syntax:** Creating Objects
 ```js
@@ -255,7 +255,7 @@ let user = {
 - If `this` is in a function only and that function is not in any object, then we get `undefined`. [Important Example](https://javascript.info/object-methods#using-this-in-object-literal)
 - Arrow funcitons can't have their own `this`, we need to declare another function as a wrapper for arrow function to use `this`.
 
-## Constructor Funtion
+## Constructor Functions
 Constructor functions technically are regular functions. There are two conventions though:
 1. They are named with capital letter first.
 2. They should be executed only with "new" operator.
@@ -277,7 +277,7 @@ When a function is executed with new, it does the following steps:
 2. The function body executes. Usually it modifies `this`, adds new properties to it.
 3. The value of `this` is returned.
 
-### 
+### return with Constructors
 Usually, constructors do not have a `return` statement. Their task is to write all necessary stuff into `this`, and it automatically becomes the result.
 <br><br>
 But if there is a `return` statement, then the rule is simple:
