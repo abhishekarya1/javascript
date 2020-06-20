@@ -1,10 +1,11 @@
 # Introduction
 
 ## Javascript History
+- September **1995**: Brendan Eich, a Netscape Communications Corporation programmer, created JavaScript in September 1995. It took Eich only 10 days to develop the scripting language, then known as *Mocha*.
 - initially called **Livescript** as it was initially created to "make web pages alive" as it ran in the browser.
 - named so becuase Java was very popular at that time and Javascript creators wanted to market it as a "younger" brother to Java.
 -  to standardize JavaScript for multiple independent implementations **ECMAScipt** or **ES** specification was standardized by Ecma International. Javascript is the most popular implementation of ECMAScript.
-- Javascript can execute not only in the browser, but also on the server, or actually on any device that has a special program called the **JavaScript engine**. The browser has an embedded engine sometimes called a **JavaScript virtual machine**. Most popular engines being **V8 in Chrome and Opera** and **SpiderMonkey in Firefox**.
+- Javascript can execute not only in the browser, but also on the server, or actually on any device that has a special program called the **JavaScript engine**. The browser has an embedded engine sometimes called a **JavaScript virtual machine**. Most popular engines being **V8 in Chrome, Node.js, and Opera** and **SpiderMonkey in Firefox**.
 - These engines use **JIT Compilers**, which means they first compile the code, run it, and then analyze and run optimizations during runtime of the compiled code to make it even more efficient.
 - In-browser JS is used to customize webpages, but out-browser JS can be used to design entire backends/software.
 - Reasons for JS popularity:
@@ -127,7 +128,7 @@ Implicit conversion happens in mathematical functions and expressions automatica
 
 #### Boolean Conversion
 The conversion rule:
-- Values that are intuitively "empty", like 0, an empty string (`""`), `null`, `undefined`, and `NaN`, become `false`.
+- Values that are intuitively "empty", like `0`, an empty string (`""`), `null`, `undefined`, and `NaN`, become `false`.
 - Other values become `true`.
 
 **NOTE**: `"0"` is not an empty string and hence it's boolean value is `true`.
@@ -136,7 +137,7 @@ The conversion rule:
 Arithmetic operaors - `+`, `-`, `*`, `/`, `%`, and `**`
 
 ### + is a very special operator
-- Arithmetic addition (on numeric and boolean).
+- Arithmetic addition (on numeric and boolean). If one of the oprands is `boolean`, it converts all to numeric, `true` is `1` and `false` is `0`. 
 - String concatenation
   - **only** the `+` operator converts any other type to `string` if one of the operands is a `string`. **All** other basic operators convert string to numeric if one of the operands is a `string`.
   ```js
@@ -150,8 +151,8 @@ Arithmetic operaors - `+`, `-`, `*`, `/`, `%`, and `**`
 ```js
 "" + 1 + 0  // "10"
 "" - 1 + 0  // "-1"
-true + false  // 1
-true + true // 2
+true + false  // 1, even without explicitly casting to a number
+true + true // 2, even without explicitly casting to a number
 6 / "3" // 2
 "2" * "3" // 6
 4 + 5 + "px"  // 9px
