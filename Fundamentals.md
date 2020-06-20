@@ -285,6 +285,7 @@ alert(m);
 message();  // call
 ```
 - If params are not passed or insufficient params are provided during the call, then such params are assigned `undefined`, unless a default param is provided in the function definition.
+  - Functions can have default values. Ex - `function sum(a = 1, b = 2) {   //function_body  }`
 - A function with an empty return or without it returns `undefined`.
 - Functions can be declared anywhere in a program, even inside `if`/`else` blocks, but they'll be accessible only inside that block.
 - Functions can be used above the code declaring them just like in C/C++, but not with function expressions. 
