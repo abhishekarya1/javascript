@@ -4,7 +4,7 @@
 - September **1995**: Brendan Eich, a Netscape Communications Corporation programmer, created JavaScript in September 1995. It took Eich only 10 days to develop the scripting language, then known as *Mocha*.
 - initially called **Livescript** as it was initially created to "make web pages alive" as it ran in the browser.
 - named so becuase Java was very popular at that time and Javascript creators wanted to market it as a "younger" brother to Java.
--  to standardize JavaScript for multiple independent implementations **ECMAScipt** or **ES** specification was standardized by Ecma International. Javascript is the most popular implementation of ECMAScript.
+-  to standardize JavaScript for multiple independent implementations **ECMAScipt** or **ES** general-purpose programming language specification was standardized by Ecma International. Javascript is the most popular implementation of ECMAScript.
 - Javascript can execute not only in the browser, but also on the server, or actually on any device that has a special program called the **JavaScript engine**. The browser has an embedded engine sometimes called a **JavaScript virtual machine**. Most popular engines being **V8 in Chrome, Node.js, and Opera** and **SpiderMonkey in Firefox**.
 - These engines use **JIT Compilers**, which means they first compile the code, run it, and then analyze and run optimizations during runtime of the compiled code to make it even more efficient.
 - In-browser JS is used to customize webpages, but out-browser JS can be used to design entire backends/software.
