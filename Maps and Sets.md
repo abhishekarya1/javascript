@@ -179,3 +179,36 @@ set.forEach((value, valueAgain, set) => {
 ```
 
 The callback function passed in `forEach` has 3 arguments: a `value`, then the same value `valueAgain`, and then the target object. Indeed, the same value appears in the arguments twice. That's for compatibility with Map where the callback passed `forEach` has three arguments. Looks a bit strange, for sure. But may help to replace Map with Set in certain cases with ease, and vice versa.
+
+## WeakMap & WeakSet
+When we use an object inside another construct such as an Array, Map or Set. Even if the object's original reference gets deleted, as long as it remains in the construct, it cannot be *garbage collected* by the JS Engine.
+
+```js
+let obj = {
+  name : 'Abhishek',
+  age : 22,
+};
+
+let arr = [5, 6, 7, obj];
+
+obj = null;
+
+// obj will not be garbage collected now
+```
+
+Similarily, if we use object as a key in Map, it won't be garbage collected as long as the Map exists.
+
+### WeakMap
+- The keys can only be `objects`, otherwise *Error*.
+- WeakMap **does not support iteration and methods `keys()`, `values()`, `entries()`**, so there's no way to get all keys or values from it.
+<br>
+WeakMap has **only** the following methods:
+- `weakMap.get(key)`
+- `weakMap.set(key, value)`
+- `weakMap.delete(key)`
+- `weakMap.has(key)`
+
+It does not make sense for a WeakMap to have properties like `size` because nobody knows when the garbage collection will take place and modify that value. To avoid ambiguity and inconsistences, these methods are not there.
+
+### WeakSet
+Same as WeakMap. It **only** supports `add`, `has` and `delete`, no `keys()` and no iterations.
