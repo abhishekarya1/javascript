@@ -12,6 +12,7 @@ Learning Javascript.
 - [Arrays](/Arrays.md)
 - [Maps and Sets](/Maps%20and%20Sets.md)
 - [Object Iterations : Object.keys(), values(), entries()](/Object%20Iterations.md)
+- [Destructuring Assignment](/Destructuring%20assignment.md)
 
 ## Reference
 - [MDN (Mozilla) JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
