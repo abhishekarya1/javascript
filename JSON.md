@@ -39,6 +39,7 @@ alert(json);
 }
 */
 ```
+JSON does not support comments. Adding a comment to JSON makes it invalid.
 
 JSON can be applied to primitives as well:
 - Objects `{ ... }`
@@ -84,3 +85,18 @@ alert( JSON.stringify(user) ); // {} (empty object)
 **Nested objects are automatically converted**
 
 **Avoid circular references**
+
+###  Custom "toJSON"
+`JSON.stringify` automatically calls it if available. Some objects like `Date` already have it built-in, and sometimes we can define it in out object.
+
+## JSON.parse
+To decode a JSON-string.
+Example -
+```js
+// stringified array
+let numbers = "[0, 1, 2, 3]";
+
+numbers = JSON.parse(numbers);
+
+alert( numbers[1] ); // 1
+```
