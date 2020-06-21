@@ -101,7 +101,7 @@ let [a = 1, b = 2, c = 3] = arr1;
 ```
 
 ## Object destructuring
-New variables with the same name as property/key are creted and assigned the corresponding property. Syntax - `let {var1, var2} = {var1, var2, ...}`.
+**New variables with the same name as property/key are created and assigned the corresponding property**. Syntax - `let {var1, var2} = {var1, var2, ...}`.
 
 ```js
 let options = {
