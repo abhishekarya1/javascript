@@ -133,6 +133,20 @@ let arrayLike = {
   length: 2
 };
 
-let arr = Array.from(arrayLike); // (*)
+let arr = Array.from(arrayLike); //
 alert(arr.pop()); // World (method works)
 ```
+
+Map to Array:
+```js
+let detail = new Map();
+detail.set('name', 'Abhishek');
+detail.set('surname', 'Arya');
+
+// Make an array from `detail` Map values
+let arr = Array.from(detail.values());
+arr.push('Verma');  // able to use array functions now
+alert(arr);   // Abhishek,Arya,Verma
+```
+
+Similarily for Sets as well.
