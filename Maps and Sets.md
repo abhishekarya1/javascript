@@ -4,10 +4,10 @@
 Map is a collection of keyed data items, just like an Object. But the main difference is that Map allows keys of any type, unlike Objects that allow only `string` and `symbol`.
 <br><br>
 Methods and properties are:
-- `new Map()` – creates the map.
+- `new Map(iterable)` – creates the map, can also copy values from an *iterable* like array.
 - `map.set(key, value)` – stores the value by the key.
-- `map.get(key)` – returns the value by the key, undefined if key doesn’t exist in map.
-- `map.has(key)` – returns true if the key exists, false otherwise.
+- `map.get(key)` – returns the value by the key, `undefined` if key doesn't exist in map.
+- `map.has(key)` – returns `true` if the key exists, `false` otherwise.
 - `map.delete(key)` – removes the value by the key.
 - `map.clear()` – removes everything from the map.
 - `map.size` – returns the current element count.
@@ -44,9 +44,42 @@ For looping over a map, there are 3 methods:
 
 - `map.keys()` – returns an iterable for keys,
 - `map.values()` – returns an iterable for values,
-- `map.entries()` – returns an iterable for entries `[key, value]`, it’s used by default in `for..of`.
+- `map.entries()` – returns an iterable for entries `[key, value]`, it's used by default in `for..of`.
+
+```js
+let recipeMap = new Map([
+  ['cucumber', 500],
+  ['tomatoes', 350],
+  ['onion',    50]
+]);
+
+// iterate over keys (vegetables)
+for (let vegetable of recipeMap.keys()) {
+  alert(vegetable); // cucumber, tomatoes, onion
+}
+
+// iterate over values (amounts)
+for (let amount of recipeMap.values()) {
+  alert(amount); // 500, 350, 50
+}
+
+// iterate over [key, value] entries
+for (let entry of recipeMap) { // the same as of recipeMap.entries()
+  alert(entry); // cucumber,500 (and so on)
+}
+```
 
 They're all insertion order unlike regular `Object`.
+
+<br><br>
+
+Besides that, Map has a built-in `forEach` method, similar to Arrays:
+```js
+// runs the function for each (key, value) pair
+recipeMap.forEach( (value, key, map) => {
+  alert(`${key}: ${value}`); // cucumber: 500 etc
+});
+```
 
 ### Object.entries: Map from Object
 
@@ -133,3 +166,16 @@ The same methods Map has for iterators are also supported:
 - `set.keys()` – returns an iterable object for values,
 - `set.values()` – same as `set.keys()`, for compatibility with Map,
 - `set.entries()` – returns an iterable object for entries `[value, value]`, exists for compatibility with Map.
+
+```js
+let set = new Set(["oranges", "apples", "bananas"]);
+
+for (let value of set) alert(value);
+
+// the same with forEach:
+set.forEach((value, valueAgain, set) => {
+  alert(value);
+});
+```
+
+The callback function passed in `forEach` has 3 arguments: a `value`, then the same value `valueAgain`, and then the target object. Indeed, the same value appears in the arguments twice. That's for compatibility with Map where the callback passed `forEach` has three arguments. Looks a bit strange, for sure. But may help to replace Map with Set in certain cases with ease, and vice versa.
