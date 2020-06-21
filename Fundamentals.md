@@ -137,7 +137,8 @@ The conversion rule:
 Arithmetic operaors - `+`, `-`, `*`, `/`, `%`, and `**`
 
 ### + is a very special operator
-- Arithmetic addition (on numeric and boolean). If one of the oprands is `boolean`, it converts all to numeric, `true` is `1` and `false` is `0`. 
+- Arithmetic addition (on `numeric` type). 
+- If one of the oprands is `boolean`, it converts all to numeric, `true` is `1` and `false` is `0`. 
 - String concatenation
   - **only** the `+` operator converts any other type to `string` if one of the operands is a `string`. **All** other basic operators convert string to numeric if one of the operands is a `string`.
   ```js
@@ -145,7 +146,7 @@ Arithmetic operaors - `+`, `-`, `*`, `/`, `%`, and `**`
   let b = 2 + 2 + '1'; // "41" and not "221", because of associativity
   let c = '1' + 2 + 2; // "122"
   ```
-- Convert to Numeric type (shorthand for `Number(value)`), no effect on numbers. 
+- Convert to Numeric type (shorthand for `Number(value)`), no effect on numbers. Ex - `let a = +'99';`.
 
 - **Exercise:**
 ```js
