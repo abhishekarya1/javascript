@@ -11,6 +11,7 @@ Learning Javascript.
 - [Numbers and Strings](/Numbers%20and%20Strings.md)
 - [Arrays](/Arrays.md)
 - [Maps and Sets](/Maps%20and%20Sets.md)
+- [Object Iterations : Object.keys(), values(), entries()](/Object%20Iterations.md)
 
 ## Reference
 - [MDN (Mozilla) JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
