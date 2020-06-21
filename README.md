@@ -15,7 +15,7 @@ Learning Javascript.
 - [Destructuring Assignment](/Destructuring%20assignment.md)
 - [Date and time]()
 - [JSON](/JSON.md)
-- [Rest parameteres and Spread syntax](/Rest%20parameters%20and%20Spread%20syntax.md)
+- [Rest parameters and Spread syntax](/Rest%20parameters%20and%20Spread%20syntax.md)
 
 ## Reference
 - [MDN (Mozilla) JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
