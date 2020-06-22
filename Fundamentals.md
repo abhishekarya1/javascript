@@ -290,6 +290,7 @@ message();  // call
 - A function with an empty return or without it returns `undefined`.
 - Functions can be declared anywhere in a program, even inside `if`/`else` blocks, but they'll be accessible only inside that block.
 - Functions can be used above the code declaring them just like in C/C++, but not with function expressions. 
+- **Functions can be thought of variables containing some "action" in js, they can be assigned to any other variable, returned froma another function, passed as actual arguments to another function, etc..**
 
 ### Function Expression
 - Functions can be assigned to variables as:
