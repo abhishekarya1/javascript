@@ -16,7 +16,7 @@ Learning Javascript.
 - [Date and time]()
 - [JSON](/JSON.md)
 - [Rest parameters and Spread syntax](/Rest%20parameters%20and%20Spread%20syntax.md)
-- [Variable Scope](/Variable%20Scope.md)
+- [Variable Scope and var](/Variable%20Scope.md)
 
 ## Reference
 - [MDN (Mozilla) JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
