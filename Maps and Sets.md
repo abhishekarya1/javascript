@@ -201,9 +201,6 @@ Similarily, if we use object as a key in Map, it won't be garbage collected as l
 ### WeakMap
 - The keys can only be `objects`, otherwise *Error*.
 - WeakMap **does not support iteration and methods `keys()`, `values()`, `entries()`, `.forEach()`**, so there's no way to get all keys or values from it.
-
-<br>
-
 - WeakMap has **only** the following methods:
   - `weakMap.get(key)`
   - `weakMap.set(key, value)`
