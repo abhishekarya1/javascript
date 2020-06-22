@@ -6,7 +6,7 @@
 
 **Syntax:** Creating Objects
 ```js
-let user = new Object(); // "object constructor" syntax
+let user = new Object(); // "object constructor" syntax, an iterable will not work here unlike Map & set
 let user = {};  // "object literal" syntax
 ```
 
