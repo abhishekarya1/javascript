@@ -22,4 +22,4 @@ let user = {
 ```
 
 ## Summary
-Use `Object.*(obj)` functions to get arrays for Object keys, values, or both. We can't use `obj.*()` without explicitly creating them first unlike Map and Set where they're predefined automatically.
+Use `Object.*(obj)` functions to get **arrays** for Object keys, values, or both. We can't use `obj.*()` without explicitly creating them first unlike Map and Set where they're predefined automatically and return *iterables*.
