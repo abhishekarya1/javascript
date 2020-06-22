@@ -200,15 +200,17 @@ Similarily, if we use object as a key in Map, it won't be garbage collected as l
 
 ### WeakMap
 - The keys can only be `objects`, otherwise *Error*.
-- WeakMap **does not support iteration and methods `keys()`, `values()`, `entries()`**, so there's no way to get all keys or values from it.
-<br>
-WeakMap has **only** the following methods:
-- `weakMap.get(key)`
-- `weakMap.set(key, value)`
-- `weakMap.delete(key)`
-- `weakMap.has(key)`
+- WeakMap **does not support iteration and methods `keys()`, `values()`, `entries()`, `.forEach()`**, so there's no way to get all keys or values from it.
 
-It does not make sense for a WeakMap to have properties like `size` because nobody knows when the garbage collection will take place and modify that value. To avoid ambiguity and inconsistences, these methods are not there.
+<br>
+
+- WeakMap has **only** the following methods:
+  - `weakMap.get(key)`
+  - `weakMap.set(key, value)`
+  - `weakMap.delete(key)`
+  - `weakMap.has(key)`
+
+  It does not make sense for a WeakMap to have properties like `size` because nobody knows when the garbage collection will take place    and modify that value. To avoid ambiguity and inconsistences, these methods are not there.
 
 ### WeakSet
-Same as WeakMap. It **only** supports `add`, `has` and `delete`, no `keys()` and no iterations.
+Same as WeakMap. It **only** supports `add()`, `has()` and `delete()`, and no iterations are supported just like WeakMaps.
