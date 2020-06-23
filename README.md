@@ -18,6 +18,7 @@ Learning Javascript.
 - [Rest parameters and Spread syntax](/Rest%20parameters%20and%20Spread%20syntax.md)
 - [Variable Scope and var](/Variable%20Scope.md)
 - [Global object, Function object, NFE, the "new Function" syntax](/Function%20Object.md)
+- [Scheduling: setTimeout and setInterval](/Scheduling.md)
 
 ## Reference
 - [MDN (Mozilla) JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
