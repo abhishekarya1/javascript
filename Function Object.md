@@ -103,7 +103,7 @@ let sayHi = new Function('alert("Hello")');   // function without arguments
 sayHi(); // Hello
 ```
 
-- Functions created with new Function, have `[[Environment]]` referencing the *global Lexical Environment*, not the *outer* one. Hence, they cannot use outer variables.
+- **Functions created with new Function, have `[[Environment]]` referencing the *global Lexical Environment*, not the *outer* one. Hence, they cannot use outer variables.**
 ```js
 function getFunc() {
   let value = "test";
@@ -115,4 +115,4 @@ function getFunc() {
 
 getFunc()(); // error: value is not defined
 ```
-If it would've been normal behaviour, then `func` would've taken value from its *outer* environment `getFunc` and not *global* environment.
+If it would've been normal behaviour, then `func` would've taken `value` from its *outer* environment `getFunc` and not *global* environment.
