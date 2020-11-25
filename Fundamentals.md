@@ -31,7 +31,7 @@
 - We can use external scripts as 
 ```js
   <script src="my.js">
-  ...cannot use js code here, when using external script...
+  ...any js code written here will be ignored when using external script (src="")...
   </script>
 ```
 - we can have multiple `<script>` tags anywhere on a webpage
@@ -68,13 +68,21 @@ ignored*/
 - old way: `var`
 - constant: `const`
 ```js
+let a = 1, b = 2, c = 3;
 const Birthday = "25/02/1998";
 ```
 - Only `[a-zA-Z0-9\_$]` are allowed, first character should not be a digit.
+- No reserved keywords as variable name are allowed
+
+- Redeclaration gives error
+```js
+let a;
+let a;  //error 
+```
 
 ### Data types
 - 8 basic types: 
-  - `number` -  limited by ±2<sup>53</sup> (`123`)
+  - `number` -  limited by ±2<sup>53</sup> (`123` or `123.89`)
   - `bigint` - numbers larger than ±2<sup>53</sup> (`123n`)
   - `string` - `""` or `''` or `backticks` (extended functionality quotes to enable usage of `${...}`)
   - `null` - nothing, empty or value unknown
